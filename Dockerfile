@@ -1,5 +1,17 @@
 FROM centos
 MAINTAINER jawen
-RUN yum install -y openssh-server sudo net-tools vim openssh-clients sshpass && sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config && echo "root:root" | chpasswd && echo "root   ALL=(ALL)       ALL" >> /etc/sudoers && ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key  && ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key && mkdir /var/run/sshd && mkdir /usr/cstor
-EXPOSE 22
+RUN yum install -y openssh-server && yum install -y sudo && yum install -y net-tools && yum install -y vim && yum install -y openssh-clients && yum install -y sshpass
+RUN echo "root:root" | chpasswd  
+RUN echo "root   ALL=(ALL)       ALL" >> /etc/sudoers  
+RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key  
+RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
+RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config 
+RUN ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+RUN cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+
+
+RUN mkdir /var/run/sshd  
+EXPOSE 22  
 CMD ["/usr/sbin/sshd", "-D"]
+
+
