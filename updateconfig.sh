@@ -91,6 +91,7 @@ function updateconfig
 	  print_log "Updating Zookeeper config file zoo.cfg on $IP failed"
 	  exit 1
 	fi
+	print_log "Updated configure file on $IP successfully"
   done
   
   #Update myid file for Zookeeper
@@ -109,6 +110,7 @@ function updateconfig
 	print_log "Updating Zookeeper config file myid on $slave3IP failed"
 	exit 1
   fi
+  print_log "Updated myid file on 3 slave machine successfully"
   
   #Update myid file for Hive
   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $clientIP "cp -rf /usr/cstor/cluster/hive/hive-env.sh /usr/cstor/hive/conf/"
@@ -116,6 +118,7 @@ function updateconfig
 	print_log "Updating Hive config file hive-env.sh on $clientIP failed"
 	exit 1
   fi
+  print_log "Updated hive file on client:$clientIP successfully"
   
 
   print_log "updateconfig ok!"
