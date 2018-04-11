@@ -39,20 +39,19 @@ $slave2IP   slave2
 $slave3IP   slave3
 $clientIP   client'>> /etc/hosts"
   print_log "Generate host file on master node"
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "echo '*
-   StrictHostKeyChecking=no
-   UserKnownHostsFile=/dev/null'>> /etc/ssh/ssh_config"
   
   #generate new ssh key on master
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa -y"
+  iddsaFile="/root/.ssh/id_dsa"
+  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "cat $iddsaFile"
+  if [  $? != 0 ]; then
+   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa"
+  else
+   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa -y"
+  fi
   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys"
   
   #Copy the master's ~/.ssh to other hosts
-  IPs=($slave1IP $slave2IP $slave3IP $clientIP)
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $IP "echo '*
-   StrictHostKeyChecking=no
-   UserKnownHostsFile=/dev/null'>> /etc/ssh/ssh_config"
-   
+  IPs=($slave1IP $slave2IP $slave3IP $clientIP)   
   for IP in ${IPs[@]} ; do
     sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $IP "sshpass -p $passwd scp -o 'StrictHostKeyChecking no' root@$masterIP:/etc/hosts /etc"
 	print_log "Copying hosts from master node to $IP successfully"
@@ -84,5 +83,6 @@ $clientIP   client'>> /etc/hosts"
 }
 
 newcredential $1
+
 
 
