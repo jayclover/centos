@@ -95,34 +95,49 @@ function updateconfig
   done
   
   #Update myid file for Zookeeper
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $slave1IP "cp -rf /usr/cstor/cluster/zookeeper/slave1/myid /usr/cstor/zookeeper/data/"
-  if [ $? != 0 ]; then
-	print_log "Updating Zookeeper config file myid on $slave1IP failed"
-	exit 1
+  if [ ! -n "$slave1IP" ]; then
+    print_log "We don't have machine slave1"
+  else
+    sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $slave1IP "cp -rf /usr/cstor/cluster/zookeeper/slave1/myid /usr/cstor/zookeeper/data/"
+    if [ $? != 0 ]; then
+	  print_log "Updating Zookeeper config file myid on $slave1IP failed"
+	  exit 1
+    fi
   fi
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $slave2IP "cp -rf /usr/cstor/cluster/zookeeper/slave2/myid /usr/cstor/zookeeper/data/"
-  if [ $? != 0 ]; then
-	print_log "Updating Zookeeper config file myid on $slave2IP failed"
-	exit 1
+  if [ ! -n "$slave2IP" ]; then
+    print_log "We don't have machine slave2"
+  else
+    sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $slave2IP "cp -rf /usr/cstor/cluster/zookeeper/slave1/myid /usr/cstor/zookeeper/data/"
+    if [ $? != 0 ]; then
+	  print_log "Updating Zookeeper config file myid on $slave1IP failed"
+	  exit 1
+    fi
   fi
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $slave3IP "cp -rf /usr/cstor/cluster/zookeeper/slave3/myid /usr/cstor/zookeeper/data/"
-  if [ $? != 0 ]; then
-	print_log "Updating Zookeeper config file myid on $slave3IP failed"
-	exit 1
+  if [ ! -n "$slave3IP" ]; then
+    print_log "We don't have machine slave3"
+  else
+    sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $slave3IP "cp -rf /usr/cstor/cluster/zookeeper/slave1/myid /usr/cstor/zookeeper/data/"
+    if [ $? != 0 ]; then
+	  print_log "Updating Zookeeper config file myid on $slave1IP failed"
+	  exit 1
+    fi
   fi
-  print_log "Updated myid file on 3 slave machine successfully"
+  print_log "Updated myid file on slave machines successfully"
   
   #Update myid file for Hive
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $clientIP "cp -rf /usr/cstor/cluster/hive/hive-env.sh /usr/cstor/hive/conf/"
-  if [ $? != 0 ]; then
-	print_log "Updating Hive config file hive-env.sh on $clientIP failed"
-	exit 1
+  if [ ! -n "$clientIP" ]; then
+    print_log "We don't have machine client"
+  else
+    sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $slave1IP "cp -rf /usr/cstor/cluster/hive/hive-env.sh /usr/cstor/hive/conf/"
+    if [ $? != 0 ]; then
+	  print_log "Updating Zookeeper config file myid on $slave1IP failed"
+	  exit 1
+    fi
+	print_log "Updated hive file on client:$clientIP successfully"
   fi
-  print_log "Updated hive file on client:$clientIP successfully"
   
 
   print_log "updateconfig ok!"
 }
 
 updateconfig $1
-

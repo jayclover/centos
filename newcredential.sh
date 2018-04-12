@@ -83,6 +83,3 @@ $clientIP   client'>> /etc/hosts"
 }
 
 newcredential $1
-
-
-
