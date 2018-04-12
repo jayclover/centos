@@ -27,7 +27,9 @@ function startcluster
     print_log "host $masterIP is unreachable"
     exit 1
   fi
- 
+  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "echo 'StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null'>> /etc/ssh/ssh_config" 
+
   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "cd /usr/cstor/hadoop && bin/hdfs namenode -format"
   print_log "Initial format hdfs on master: $masterIP successfully"
   if [ $? != 0 ]; then
