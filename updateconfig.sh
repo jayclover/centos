@@ -11,6 +11,7 @@ function print_log
 #non-password login
 function updateconfig
 {
+  print_log "========Update cluster configuration file for namespaces:$1========"
   rm -rf ~/.ssh/known_hosts
   masterIP=$(kubectl get pod --namespace=$1 -o wide|grep master|awk {{'print $6'}})
   slave1IP=$(kubectl get pod --namespace=$1 -o wide|grep slave1|awk {{'print $6'}})
@@ -137,7 +138,7 @@ function updateconfig
   fi
   
 
-  print_log "updateconfig ok!"
+  print_log "========updateconfig ok! for namespaces:$1========"
 }
 
 updateconfig $1

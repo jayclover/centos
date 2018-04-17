@@ -31,11 +31,13 @@ function startcluster
   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "echo 'StrictHostKeyChecking no
   UserKnownHostsFile /dev/null'>> /etc/ssh/ssh_config" 
 
-  sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "cd /usr/cstor/hadoop && bin/hdfs namenode -format -force"
-  print_log "Initial format hdfs on master: $masterIP successfully"
-  if [ $? != 0 ]; then
-	print_log "Initial format hdfs on master: $masterIP failed"
-	exit 1
+  if [ $2 -eq 1 ]; then
+	sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "cd /usr/cstor/hadoop && bin/hdfs namenode -format -force"
+	print_log "Initial format hdfs on master: $masterIP successfully"
+	if [ $? != 0 ]; then
+		print_log "Initial format hdfs on master: $masterIP failed"
+		exit 1
+	fi
   fi
   
   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "cd /usr/cstor/hadoop && sbin/stop-dfs.sh"
@@ -64,7 +66,7 @@ function startcluster
 	exit 1
   fi
 
-  print_log "startcluster ok!"
+  print_log "========startcluster ok! for namespaces:$1========"
 }
 
 startcluster $1 $2

@@ -11,6 +11,7 @@ function print_log
 #non-password login
 function newcredential
 {
+  print_log "========Update certificates for namespaces:$1========"
   rm -rf ~/.ssh/known_hosts
   masterIP=$(kubectl get pod --namespace=$1 -o wide|grep master|awk {{'print $6'}})
   slave1IP=$(kubectl get pod --namespace=$1 -o wide|grep slave1|awk {{'print $6'}})
@@ -79,7 +80,7 @@ $clientIP   client'>> /etc/hosts"
 	fi
   done
 
-  print_log "newcredential ok!"
+  print_log "========newcredential ok! for namespaces:$1========"
 }
 
 newcredential $1
