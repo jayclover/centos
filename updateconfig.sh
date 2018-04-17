@@ -11,7 +11,7 @@ function print_log
 #non-password login
 function updateconfig
 {
-  
+  rm -rf ~/.ssh/known_hosts
   masterIP=$(kubectl get pod --namespace=$1 -o wide|grep master|awk {{'print $6'}})
   slave1IP=$(kubectl get pod --namespace=$1 -o wide|grep slave1|awk {{'print $6'}})
   slave2IP=$(kubectl get pod --namespace=$1 -o wide|grep slave2|awk {{'print $6'}})
@@ -24,7 +24,7 @@ function updateconfig
  
   unreachable=`ping $masterIP -c 3 -W 3 | grep -c "100% packet loss"`
   if [ $unreachable -eq 1 ]; then
-    print_log "host $masterIP is unreachable"
+    print_log "Master node $masterIP is unreachable"
     exit 1
   fi
  
