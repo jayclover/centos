@@ -13,6 +13,18 @@ function updateconfig
 {
   print_log "========Update cluster configuration file for namespaces:$1========"
   rm -rf ~/.ssh/known_hosts
+  
+  if [ ! -n "$1" ]; then
+    print_log "Please input valid namespace by running this script, script exited"
+    exit 1
+  fi
+  
+  kubectl get namespaces $1
+  if [ $? -eq 1 ]; then
+    print_log "The namespace $1 is NULL, script exited"
+    exit 1
+  fi
+  
   masterIP=$(kubectl get pod --namespace=$1 -o wide|grep master|awk {{'print $6'}})
   slave1IP=$(kubectl get pod --namespace=$1 -o wide|grep slave1|awk {{'print $6'}})
   slave2IP=$(kubectl get pod --namespace=$1 -o wide|grep slave2|awk {{'print $6'}})
@@ -23,12 +35,6 @@ function updateconfig
   user="root"
   passwd="root"
   
-  kubectl get namespaces $1
-  if [ $? -eq 1 ]; then
-    print_log "The namespace $1 is NULL, script exited"
-    exit 1
-  fi
- 
   unreachable=`ping $masterIP -c 3 -W 3 | grep -c "100% packet loss"`
   if [ $unreachable -eq 1 ]; then
     print_log "Master node $masterIP is unreachable"
