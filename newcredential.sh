@@ -22,13 +22,18 @@ function newcredential
   # remove target public key
   user="root"
   passwd="root"
+  
+  kubectl get namespaces $1
+  if [ $? -eq 1 ]; then
+    print_log "The namespace $1 is NULL, script exited"
+    exit 1
+  fi
  
   unreachable=`ping $masterIP -c 3 -W 3 | grep -c "100% packet loss"`
   if [ $unreachable -eq 1 ]; then
     print_log "Master node $masterIP is unreachable"
     exit 1
   fi
- 
   
   #Modify the hosts with latest info
   sshpass -p $passwd ssh -o "StrictHostKeyChecking no" $masterIP "echo ''>/etc/hosts"
