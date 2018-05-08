@@ -1,0 +1,13 @@
+[Unit]
+Description=kubectl proxy 8001
+After=network.target
+
+[Service]
+Environment=KUBECONFIG=/etc/kubernetes/admin.conf
+Type=simple
+User=root
+ExecStart=/usr/bin/kubectl proxy
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
