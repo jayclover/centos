@@ -1,0 +1,134 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+    Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=CN, ST=BJ, L=Beijing, O=iss_cloud, CN=iss_cloud CA/emailAddress=jxwen@isoftstone.com
+        Validity
+            Not Before: May 17 03:33:00 2018 GMT
+            Not After : May 14 03:33:00 2028 GMT
+        Subject: C=CN, ST=BJ, L=Beijing, O=iss_cloud, CN=client/emailAddress=jxwen@isoftstone.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (4096 bit)
+                Modulus:
+                    00:be:33:50:49:0f:eb:a5:5f:0d:73:fe:e2:2f:8a:
+                    cf:bf:4a:29:4f:f6:76:fe:6a:c1:35:1b:f3:ab:e3:
+                    25:c5:2f:df:34:b5:cc:9f:16:0c:74:57:60:5a:72:
+                    28:f1:f2:8c:bc:b1:57:d6:f1:d5:23:de:a2:72:c4:
+                    aa:8c:4d:16:d1:df:fa:68:4d:67:27:49:7a:ba:0a:
+                    c5:11:82:69:34:ab:ef:f0:ac:92:45:be:31:05:df:
+                    fe:83:64:d5:45:e8:92:75:8f:72:9a:bb:c5:b3:30:
+                    23:3e:69:0f:17:7f:81:98:a7:50:f4:4e:e2:a8:21:
+                    8d:fd:83:f9:d5:93:9d:aa:7a:c6:29:b4:1c:2f:12:
+                    2a:0f:55:06:e5:8c:88:ac:cc:be:8a:c3:3e:87:44:
+                    e2:8a:8d:57:de:a9:84:e7:a6:1c:90:4f:8c:45:6e:
+                    d8:52:78:2a:a0:56:78:e1:75:2c:e6:8d:c5:f7:cd:
+                    8c:b6:3d:ac:cb:a2:86:68:2f:bf:7e:5d:93:3f:48:
+                    45:88:da:83:88:0d:6f:e7:f0:f2:17:07:a8:45:90:
+                    70:9a:90:8c:fb:c6:76:1c:89:af:d3:0f:56:c0:c4:
+                    3f:fe:0f:ab:d3:49:5e:d3:21:95:13:f1:f8:86:4c:
+                    ae:a7:70:56:65:02:58:73:bc:d4:df:03:2b:f9:76:
+                    39:e1:2c:d5:66:8a:8d:cf:a0:ce:74:bf:17:86:de:
+                    08:28:11:d1:1e:32:93:b5:41:d2:cb:17:fa:c3:7a:
+                    6c:d8:bc:9c:f5:42:88:c4:f4:07:fa:37:48:07:31:
+                    45:00:ba:d9:73:d8:1e:b6:7a:a2:4f:51:c4:15:72:
+                    42:c6:f8:29:86:de:24:9c:69:01:5b:dd:42:36:9b:
+                    3a:1c:b8:1b:4c:c7:91:e6:83:67:07:08:bf:48:da:
+                    1a:32:cf:26:82:8e:6a:3b:6e:6b:38:c2:c0:14:b6:
+                    97:a8:7b:01:29:4b:9e:03:4c:80:e8:08:1a:82:09:
+                    cf:8d:3b:bf:4c:5d:2c:a9:5a:b6:24:df:61:37:26:
+                    d2:2d:db:30:0b:3a:05:0f:10:65:31:04:ae:5e:cb:
+                    23:d8:bc:03:a7:3a:ba:5f:7a:20:b8:bf:06:ca:5d:
+                    d6:4b:67:82:e5:2a:69:6f:80:92:b3:74:36:05:44:
+                    49:13:a5:fa:1f:52:64:6e:17:f1:13:41:86:9f:2e:
+                    4d:66:a6:36:e5:50:1e:a5:38:69:0e:8e:81:91:31:
+                    37:04:5b:7d:f1:00:b3:9d:6c:8b:f8:81:08:91:16:
+                    a3:bf:31:4c:17:49:30:a3:41:ba:40:02:b7:fd:a3:
+                    d0:41:f1:b4:00:7c:73:31:9b:5a:17:8c:56:35:85:
+                    3c:ec:03
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                Easy-RSA Generated Certificate
+            X509v3 Subject Key Identifier: 
+                79:11:84:38:B0:92:96:14:9A:06:C9:92:2C:38:05:91:A5:F2:C0:C1
+            X509v3 Authority Key Identifier: 
+                keyid:84:23:8F:83:91:E3:07:A3:3B:47:6B:E7:FE:98:89:2E:7F:9A:99:AB
+                DirName:/C=CN/ST=BJ/L=Beijing/O=iss_cloud/CN=iss_cloud CA/emailAddress=jxwen@isoftstone.com
+                serial:F2:FE:A2:D6:B5:30:72:9E
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+    Signature Algorithm: sha1WithRSAEncryption
+         a3:ac:bb:1f:f4:d7:83:b7:c2:79:a6:e1:56:d3:24:35:56:14:
+         b4:f7:46:d2:db:08:81:63:ab:07:3b:8b:66:8b:7e:9e:d9:01:
+         4f:c7:86:4a:07:20:5d:05:b1:05:80:8e:f2:12:01:7a:f8:20:
+         09:ea:7e:62:e8:06:4f:d2:87:55:28:3c:13:14:b0:51:1b:d7:
+         ed:a8:0a:dd:94:11:4e:86:3e:ea:45:56:1d:a1:2b:ff:fb:6f:
+         51:ce:6f:11:db:8e:07:3c:9a:4a:dc:4b:31:17:5a:ea:af:24:
+         64:41:6e:b7:0e:3d:60:aa:fc:7e:c6:8f:f3:8b:de:1d:00:f6:
+         46:f7:2d:71:a5:82:61:34:21:1d:3b:5a:6c:38:e1:13:48:aa:
+         95:57:a9:1b:88:a8:04:c3:a3:99:2f:f8:e1:f6:ae:c2:64:6e:
+         6b:bd:b9:b2:91:3e:44:d8:ae:04:f5:51:ca:b3:7e:69:4a:52:
+         5c:72:77:30:3d:f0:f5:83:a0:73:c4:c0:55:8c:7d:e2:6c:5a:
+         c9:8b:75:9f:b8:04:f6:5c:4c:ac:73:9a:20:f1:af:d7:cc:e0:
+         91:8b:6e:3b:52:9e:b0:f6:20:ac:eb:cf:0b:c6:00:86:14:80:
+         6d:89:14:1c:da:0c:9b:78:6c:ba:27:cb:ad:d7:61:4f:d1:13:
+         d7:29:db:48:45:98:2d:48:88:d9:e9:5c:d7:2a:5d:9c:c5:a3:
+         a7:8a:07:f5:a4:64:fe:f6:00:3b:03:ee:84:64:5b:db:55:ba:
+         b5:8e:06:49:c6:f4:21:7f:fa:da:ba:27:30:e1:c6:3c:e1:6c:
+         dc:15:fe:a4:59:0f:40:97:0f:41:d6:64:28:4e:99:95:0a:ef:
+         05:15:6f:a8:a8:e6:d9:28:94:0e:a8:f7:bb:69:40:39:27:bc:
+         7c:24:63:01:97:06:e6:2e:ad:6b:27:9e:d3:14:36:d7:0f:68:
+         39:28:7c:ad:e2:d9:96:f0:96:9c:ec:a9:bc:64:4c:8a:83:0c:
+         db:7c:b7:a5:19:3d:cd:38:61:6a:d2:83:9d:7d:de:0f:17:89:
+         a8:95:29:07:4b:6a:a7:e0:50:37:2d:db:91:c2:1a:f8:b2:03:
+         52:47:f8:6e:35:06:ad:62:0a:69:40:1d:43:0c:2f:23:63:88:
+         a7:d1:a1:cd:6a:27:c9:80:d8:7e:20:a6:18:fd:6c:34:5a:66:
+         e6:8f:f4:b1:74:ce:81:df:92:45:e0:f7:77:29:bf:5f:1c:a8:
+         2f:bd:ac:a0:6c:b1:13:ca:37:a5:72:7f:28:4c:e4:a8:89:2d:
+         8f:8d:81:a2:df:53:49:0f:87:d3:49:1a:09:1f:fc:fc:8a:fa:
+         4d:f8:09:e5:17:86:07:56
+-----BEGIN CERTIFICATE-----
+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
+SQ+H00kaCR/8/Ir6TfgJ5ReGB1Y=
+-----END CERTIFICATE-----
