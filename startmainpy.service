@@ -1,0 +1,12 @@
+[Unit]
+Description=start the main.py using python3
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /opt/sit/public/main.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

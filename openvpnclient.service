@@ -1,0 +1,12 @@
+[Unit]
+Description=Start up the openvpn through port TCP 1194
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/sbin/openvpn --config /opt/openvpn/client.ovpn
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
