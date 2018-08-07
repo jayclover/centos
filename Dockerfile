@@ -19,6 +19,8 @@ ENV PATH $HADOOP_HOME/bin:$PATH
 RUN chown -R root:root /usr/cstor/hbase
 ENV HBASE_MANAGES_ZK false   
 
+COPY startnginxpod.sh /opt/
+COPY stopnginxpod.sh /opt/
 
 RUN mkdir /var/run/sshd  
 EXPOSE 22  
